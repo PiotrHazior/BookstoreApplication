@@ -7,6 +7,7 @@ namespace BookstoreAdmin.Pages.Account
     public class LoginModel : PageModel
     {
         private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly UserManager<IdentityUser> _userManager;
 
         [BindProperty]
         public string Email { get; set; }
@@ -14,9 +15,10 @@ namespace BookstoreAdmin.Pages.Account
         [BindProperty]
         public string Password { get; set; }
 
-        public LoginModel(SignInManager<IdentityUser> signInManager)
+        public LoginModel(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager)
         {
             _signInManager = signInManager;
+            _userManager = userManager;
         }
 
         public void OnGet()
@@ -34,13 +36,25 @@ namespace BookstoreAdmin.Pages.Account
 
             if (result.Succeeded)
             {
-                return RedirectToPage("/Admin/Index");
+                var user = await _userManager.FindByEmailAsync(Email);
+                var roles = await _userManager.GetRolesAsync(user);
+
+                if (roles.Contains("Admin"))
+                {
+                    return RedirectToPage("/Admin/Index");
+                }
+                else if (roles.Contains("User"))
+                {
+                    return RedirectToPage("/User/Index");
+                }
             }
             else
             {
                 ModelState.AddModelError(string.Empty, "Nieprawid³owa próba logowania.");
                 return Page();
             }
+
+            return Page();
         }
     }
 }

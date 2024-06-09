@@ -90,6 +90,22 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Desktop/Desktop/BookstoreApp/BookstoreApp/BookstoreAdmin/Pages/User/Book/CreateBook.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxCb29rXENyZWF0ZUJvb2suY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Desktop/Desktop/BookstoreApp/BookstoreApp/BookstoreAdmin/Pages/User/Category/CreateCategory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxDYXRlZ29yeVxDcmVhdGVDYXRlZ29yeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Desktop/Desktop/BookstoreApp/BookstoreApp/BookstoreAdmin/Pages/User/Customer/CreateCustomer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxDdXN0b21lclxDcmVhdGVDdXN0b21lci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Desktop/Desktop/BookstoreApp/BookstoreApp/BookstoreAdmin/Pages/User/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Desktop/Desktop/BookstoreApp/BookstoreApp/BookstoreAdmin/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

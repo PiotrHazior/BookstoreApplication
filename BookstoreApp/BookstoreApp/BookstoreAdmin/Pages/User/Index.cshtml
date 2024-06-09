@@ -1,0 +1,77 @@
+﻿@page
+@model BookstoreAdmin.Pages.User.IndexModel
+@{
+    ViewData["Title"] = "User Panel";
+}
+
+<h2>User Panel</h2>
+
+<h3>Books</h3>
+<p>
+    <a asp-page="/User/Book/CreateBook">Create New Book</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>ISBN</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Books)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>@item.Author</td>
+                <td>@item.ISBN</td>
+                <td>@item.Price</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h3>Categories</h3>
+<p>
+    <a asp-page="/User/Category/CreateCategory">Create New Category</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Categories)
+        {
+            <tr>
+                <td>@item.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h3>Customers</h3>
+<p>
+    <a asp-page="/User/Customer/CreateCustomer">Create New Customer</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Customers)
+        {
+            <tr>
+                <td>@item.FirstName</td>
+                <td>@item.LastName</td>
+                <td>@item.Email</td>
+            </tr>
+        }
+    </tbody>
+</table>

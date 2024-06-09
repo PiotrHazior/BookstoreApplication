@@ -8,6 +8,8 @@ using Infrastructure.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using AutoMapper;
+using CategoryServiceReference;
+using CustomerServiceReference;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,10 +41,13 @@ builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 
 
-builder.Services.AddHttpClient<BookServiceReference.IBookSoapService, BookServiceReference.BookSoapServiceClient>(client =>
-{
-    client.BaseAddress = new Uri("http://localhost:5000/BookSoapService.asmx");
-});
+builder.Services.AddScoped<BookServiceReference.IBookSoapService, BookSoapServiceClient>(provider =>
+    new BookSoapServiceClient(BookSoapServiceClient.EndpointConfiguration.BasicHttpBinding_IBookSoapService));
+builder.Services.AddScoped<CategoryServiceReference.ICategorySoapService, CategorySoapServiceClient>(provider =>
+    new CategorySoapServiceClient(CategorySoapServiceClient.EndpointConfiguration.BasicHttpBinding_ICategorySoapService));
+builder.Services.AddScoped<CustomerServiceReference.ICustomerSoapService, CustomerSoapServiceClient>(provider =>
+    new CustomerSoapServiceClient(CustomerSoapServiceClient.EndpointConfiguration.BasicHttpBinding_ICustomerSoapService));
+
 
 builder.Services.AddAuthentication().AddCookie();
 
