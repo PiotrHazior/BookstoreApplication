@@ -1,0 +1,18 @@
+﻿@page
+@model BookstoreAdmin.Pages.Admin.Category.UpdateModel
+@{
+    ViewData["Title"] = "Update Category";
+}
+<h2>Update Category</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Category.Name" class="control-label"></label>
+        <input asp-for="Category.Name" class="form-control" />
+        <span asp-validation-for="Category.Name" class="text-danger"></span>
+    </div>
+    <input type="hidden" asp-for="Category.Id" />
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+
+<a asp-page="/Admin/Index">Back to List</a>

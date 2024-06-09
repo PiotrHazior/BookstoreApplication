@@ -1,0 +1,33 @@
+﻿@page
+@model BookstoreAdmin.Pages.Admin.SoapClientModel
+@{
+    ViewData["Title"] = "SOAP Client";
+}
+
+<h2>SOAP Client</h2>
+
+<p>
+    <a asp-page="Create">Create New Book</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>ISBN</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Books)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>@item.Author</td>
+                <td>@item.ISBN</td>
+                <td>@item.Price</td>
+            </tr>
+        }
+    </tbody>
+</table>

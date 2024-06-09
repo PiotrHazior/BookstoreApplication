@@ -1,0 +1,92 @@
+﻿@page
+@model BookstoreAdmin.Pages.Admin.IndexModel
+@{
+    ViewData["Title"] = "Admin Panel";
+}
+
+<h2>Admin Panel</h2>
+
+<h3>Books</h3>
+<p>
+    <a asp-page="/Admin/Book/CreateBook">Create New Book</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>ISBN</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Books)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>@item.Author</td>
+                <td>@item.ISBN</td>
+                <td>@item.Price</td>
+                <td>
+                    <a asp-page="/Admin/Book/UpdateBook" asp-route-id="@item.Id">Update</a> |
+                    <a asp-page="/Admin/Book/DeleteBook" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h3>Categories</h3>
+<p>
+    <a asp-page="/Admin/Category/CreateCategory">Create New Category</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Categories)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>
+                    <a asp-page="/Admin/Category/UpdateCategory" asp-route-id="@item.Id">Update</a> |
+                    <a asp-page="/Admin/Category/DeleteCategory" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h3>Customers</h3>
+<p>
+    <a asp-page="/Admin/Customer/CreateCustomer">Create New Customer</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Customers)
+        {
+            <tr>
+                <td>@item.FirstName</td>
+                <td>@item.LastName</td>
+                <td>@item.Email</td>
+                <td>
+                    <a asp-page="/Admin/Customer/UpdateCustomer" asp-route-id="@item.Id">Update</a> |
+                    <a asp-page="/Admin/Customer/DeleteCustomer" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
